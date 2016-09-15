@@ -1,0 +1,18 @@
+---
+- name: enable openvas-scanner
+  scanner: name="openvas-scanner" enabled=yes
+
+- name: start openvas-scanner
+  scanner: name="openvas-scanner" state=started
+
+- name: restart openvas-scanner
+  scanner: name="openvas-scanner" state=restarted
+
+- name: enable openvas-manager
+  manager: name="openvas-scanner" enabled=yes
+
+- name: start openvas-manager
+  manager: name="openvas-scanner" state=started
+
+- name: restart openvas-manager
+  manager: name="openvas-scanner" state=restarted

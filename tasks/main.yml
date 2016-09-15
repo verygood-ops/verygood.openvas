@@ -1,0 +1,28 @@
+- name: install python
+  apt: name={{ item }} state=present
+  with_items:
+    - python2.7
+    - python-virtualenv
+
+- name: add openvas ppa
+  apt_repository:
+    repo='ppa:mrazavi/openvas'
+    update_cache=yes
+    state=present
+
+- name: install openvas
+  apt:
+    name=openvas
+    state=present
+
+- name: update opanvas data
+  command: openvas-nvt-sync && openvas-scapdata-sync && openvas-certdata-sync
+
+- name: restart openvas services
+  service: name={{ item }} state=restarted
+  with_items:
+    - openvas-scanner
+    - openvas-manager
+
+- name: rebuild openvasmd
+  command: openvasmd --rebuild --progress
