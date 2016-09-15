@@ -6,7 +6,7 @@ An installation of the OpenVAS vulnerability scanner
 ```
 vagrant up
 vagrant ssh -c "sudo apt-get install python2.7 python-virtualenv"
-vagrant ssh -c "sudo echo \"nameserver 8.8.8.8 >> /etc/resolv.conf"
+vagrant ssh -c "sudo echo \"nameserver 8.8.8.8\" >> /etc/resolv.conf"
 vagrant provision
 ```
 
