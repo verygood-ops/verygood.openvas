@@ -1,8 +1,5 @@
-- name: install python
-  apt: name={{ item }} state=present
-  with_items:
-    - python2.7
-    - python-virtualenv
+---
+# tasks file for openvas
 
 - name: add openvas ppa
   apt_repository:
