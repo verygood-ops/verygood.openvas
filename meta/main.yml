@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  author: Lee Azzarello
-  description: Installs and updates the OpenVAS vulnerability scanner
-  company: Very Good Security
+  author: your name
+  description: 
+  company: your company (optional)
   # Some suggested licenses:
   # - BSD (default)
   # - MIT
@@ -81,7 +81,6 @@ galaxy_info:
   #  - raring
   #  - saucy
   #  - trusty
-  #  - xenial
   #- name: SLES
   #  versions:
   #  - all
