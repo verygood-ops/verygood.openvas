@@ -12,6 +12,11 @@
     name=openvas
     state=present
 
+- name: install nmap
+  apt:
+    name=nmap
+    state=present
+
 - name: update opanvas data
   command: openvas-nvt-sync && openvas-scapdata-sync && openvas-certdata-sync
 
