@@ -7,10 +7,17 @@
     update_cache=yes
     state=present
 
-- name: install openvas
-  apt:
-    name=openvas
-    state=present
+# openvas installation required user promt, and ansible apt module hangs when it's needed
+# 'force' option doesn't helps in this way
+# also tried to use '-y' option and 'APT:: Get::Assume-Yes "true";' in apt config with no luck
+#- name: install openvas
+#  apt:
+#    name=openvas
+#    state=present
+
+# installing openvas in non interactive mode
+- name: install openvas in noninteractive mode
+  shell: DEBIAN_FRONTEND=noninteractive apt-get -y install openvas
 
 - name: install nmap
   apt:
