@@ -12,7 +12,7 @@ network dependencies.
 Upload image to ECR  
 
 1. `aws ecr get-login --region us-west-2`
-1. _execute command output in your shell_
+1. _execute previous command output in your shell_
 1. `aws ecr create-repository --repository-name openvas`
 1. `docker tag <image id> <repository uri>`
 1. `docker push <repository uri>`
@@ -37,10 +37,10 @@ format. For example `us-west-2`
 `$AWS_ACCOUNT_ID` is the account ID associated with the account where
 you will deploy your application. 
 
-`./gen_dockerrun.sh`
-`eb init`
-`eb create`
-`eb setenv HTTP_ONLY=true`
+`./gen_dockerrun.sh`  
+`eb init`  
+`eb create`  
+`eb setenv HTTP_ONLY=true`  
 
 This will test that everything can deploy correctly. The application
 listens on port 80. A production deployment should set up a load
