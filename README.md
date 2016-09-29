@@ -1,17 +1,40 @@
-# verygood.openvas
-An installation of the OpenVAS vulnerability scanner
+## OpenVAS deployment via Elastic Beanstalk
 
-## Development
+### Local development
 
-```
-vagrant up
-vagrant ssh 
-sudo -i
-echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-apt-get update
-apt-get install -y python2.7 python-virtualenv
-^d^d
-vagrant provision
-```
+* Run container locally from Dockerfile at https://github.com/lazzarello/openvas-docker
 
-This will take a pretty long time, as there are many steps in setting up openvas. When the playbook finishes running, you should be able to https://localhost:4443 and see the default web UI. Default user/pass is admin:admin.
+### Devlopment deployment
+
+Upload image to ECR
+    * aws ecr get-login --region us-west-2
+    * _execute command output in your shell_
+    * aws ecr create-repository --repository-name openvas
+    * docker tag <image id> <repository uri>
+    * docker push <repository uri>
+
+_Now you have the container published in ECR. Any ECR compatible
+applications can launch an instance of it. We will be using Elastic
+Beanstalk._
+
+Configure your environment. Ensure the following variables are set to
+meaningful values. These determine what account and credentials are used
+for the deployment.
+
+`$S3_AUTH_BUCKET` requires a value which is the bucket name containing
+your Docker configuration, in the format indicated in `config.json`
+
+`$AWS_DEFAULT_REGION` requires a value indicating the region in AWS
+format. For example `us-west-2`
+
+`$AWS_ACCESS_KEY_ID` is the access key ID associated with the account
+you will deploy your application. 
+
+`./gen_dockerrun > Dockerrun.aws.json`
+`eb init`
+`eb create`
+`eb setenv HTTP_ONLY=true`
+
+This will test that everything can deploy correctly. The application
+listens on port 80. A production deployment should set up a load
+balancer to do secure termination in front of the container server.
