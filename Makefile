@@ -1,5 +1,5 @@
 clean:
-	rm -f config.json deploy/Dockerrun.aws.json
+	rm -f config.json deploy/Dockerrun.aws.json Dockerrun.aws.json
 
 config:
 	./gen_dockerrun.sh
