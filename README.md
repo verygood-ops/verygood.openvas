@@ -40,7 +40,7 @@ you will deploy your application.
 `./gen_dockerrun.sh`  
 `aws s3 cp s3://$S3_AUTH_BUCKET/config.json`  
 
-Add the following IAM policies to allow the instance to pull container
+Add the following IAM policies to the aws-elasticbeanstalk-ec2-role to allow the instance to pull container
 images and get data from S3
 
 ```
