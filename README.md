@@ -30,7 +30,7 @@ your Docker configuration, in the format indicated in `config.json`
 `$AWS_DEFAULT_REGION` requires a value indicating the region in AWS
 format. For example `us-west-2`
 
-`$AWS_ACCESS_KEY_ID` is the access key ID associated with the account
+`$AWS_ACCOUNT_ID` is the account ID associated with the account where
 you will deploy your application. 
 
 `./gen_dockerrun.sh`
