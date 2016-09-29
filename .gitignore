@@ -2,3 +2,5 @@
 *.swp
 .vagrant/
 *.log
+config.json
+Dockerrun.aws.json
