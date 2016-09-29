@@ -38,6 +38,48 @@ format. For example `us-west-2`
 you will deploy your application. 
 
 `./gen_dockerrun.sh`  
+`aws s3 cp s3://$S3_AUTH_BUCKET/config.json`  
+
+Add the following IAM policies to allow the instance to pull container
+images and get data from S3
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:GetRepositoryPolicy",
+        "ecr:DescribeRepositories",
+        "ecr:ListImages",
+        "ecr:BatchGetImage"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Get*",
+        "s3:List*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 `eb init`  
 `eb create`  
 `eb setenv HTTP_ONLY=true`  
