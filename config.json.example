@@ -1,0 +1,5 @@
+{
+		"https://AWS_ACCESS_KEY_ID.dkr.ecr.AWS_DEFAULT_REGION.amazonaws.com": {
+			"auth": "ECR_SECRET"
+		}
+}
