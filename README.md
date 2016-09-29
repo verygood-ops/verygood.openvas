@@ -81,9 +81,7 @@ images and get data from S3
 }
 ```
 
-`eb init`  
-`eb create`  
-`eb setenv HTTP_ONLY=true`  
+`make eb_deploy`  
 
 This will test that everything can deploy correctly. The application
 listens on port 80. A production deployment should require an SSH tunnel
