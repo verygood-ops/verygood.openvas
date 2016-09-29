@@ -37,8 +37,9 @@ format. For example `us-west-2`
 `$AWS_ACCOUNT_ID` is the account ID associated with the account where
 you will deploy your application. 
 
-`./gen_dockerrun.sh`  
-`aws s3 cp s3://$S3_AUTH_BUCKET/config.json`  
+`make clean`  
+`make config`  
+`make upload`  
 
 Add the following IAM policies to the aws-elasticbeanstalk-ec2-role to allow the instance to pull container
 images and get data from S3
@@ -85,5 +86,5 @@ images and get data from S3
 `eb setenv HTTP_ONLY=true`  
 
 This will test that everything can deploy correctly. The application
-listens on port 80. A production deployment should set up a load
-balancer to do secure termination in front of the container server.
+listens on port 80. A production deployment should require an SSH tunnel
+through a NAT server to view the control panel
