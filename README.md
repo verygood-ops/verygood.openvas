@@ -4,14 +4,18 @@
 
 * Run container locally from Dockerfile at https://github.com/lazzarello/openvas-docker
 
+WARNING. This Dockerfile will take aprox 1.5 hours to build due to
+network dependencies.
+
 ### Devlopment deployment
 
-Upload image to ECR
-    1. aws ecr get-login --region us-west-2
-    1. _execute command output in your shell_
-    1. aws ecr create-repository --repository-name openvas
-    1. docker tag <image id> <repository uri>
-    1. docker push <repository uri>
+Upload image to ECR  
+
+1. `aws ecr get-login --region us-west-2`
+1. _execute command output in your shell_
+1. `aws ecr create-repository --repository-name openvas`
+1. `docker tag <image id> <repository uri>`
+1. `docker push <repository uri>`
 
 _Now you have the container published in ECR. Any ECR compatible
 applications can launch an instance of it. We will be using Elastic
