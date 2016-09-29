@@ -9,7 +9,7 @@ for file in $DOCKER_CONFIG $DOCKERRUN
 do
     if [ -e $file ]
     then
-        printf "You have a previously configured %d file. Please remove it to generate a new one.\n" $file
+        printf "You have a previously configured %s file. Please remove it to generate a new one.\n" $file
         exit 1
     fi
 done
