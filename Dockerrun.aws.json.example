@@ -1,11 +1,11 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Authentication": {
-    "Bucket": "$S3_AUTH_BUCKET",
+    "Bucket": "S3_AUTH_BUCKET",
     "Key": "config.json"
   },
   "Image": {
-    "Name": "$AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/openvas",
+    "Name": "AWS_ACCOUNT_ID.dkr.ecr.AWS_DEFAULT_REGION.amazonaws.com/openvas",
     "Update": "true"
   },
   "Ports": [
