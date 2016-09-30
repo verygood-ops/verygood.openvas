@@ -7,22 +7,17 @@
     update_cache=yes
     state=present
 
-- name: seed debconf settings
+- name: configure openvas-scanner
   debconf:
-      name=openvas-scanner
-      question=openvas-scanner/enable_redis
-      value=true
-      vtype=select
+    name: openvas-scanner
+    question: openvas-scanner/enable_redis
+    vtype: boolean
+    value: true
 
-# openvas installation required user promt, and ansible apt module hangs when it's needed
-# 'force' option doesn't helps in this way
-# also tried to use '-y' option and 'APT:: Get::Assume-Yes "true";' in apt config with no luck
 - name: install openvas
   apt:
     name=openvas
     state=present
-  environment: 
-    DEBIAN_FRONTEND: noninteractive
 
 - name: install nmap
   apt:
