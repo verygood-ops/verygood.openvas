@@ -15,9 +15,7 @@
     value: true
 
 - name: install openvas
-  apt:
-    name=openvas
-    state=present
+  shell: apt-get install -y -q openvas
 
 - name: install nmap
   apt:
