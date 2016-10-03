@@ -16,6 +16,8 @@
 
 - name: install openvas
   shell: apt-get install -y -q openvas
+  environment:
+    HOME: /root
 
 - name: install nmap
   apt:
